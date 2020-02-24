@@ -122,7 +122,7 @@ public final class PersonModel {
         internalGetFieldAccessorTable() {
       return PersonModel.internal_static_Person_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PersonModel.Person.class, PersonModel.Person.Builder.class);
+              Person.class, Builder.class);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -250,10 +250,10 @@ public final class PersonModel {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PersonModel.Person)) {
+      if (!(obj instanceof Person)) {
         return super.equals(obj);
       }
-      PersonModel.Person other = (PersonModel.Person) obj;
+      Person other = (Person) obj;
 
       boolean result = true;
       result = result && (getId()
@@ -283,58 +283,58 @@ public final class PersonModel {
       return hash;
     }
 
-    public static PersonModel.Person parseFrom(
+    public static Person parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonModel.Person parseFrom(
+    public static Person parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonModel.Person parseFrom(byte[] data)
+    public static Person parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonModel.Person parseFrom(
+    public static Person parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonModel.Person parseFrom(java.io.InputStream input)
+    public static Person parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PersonModel.Person parseFrom(
+    public static Person parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PersonModel.Person parseDelimitedFrom(java.io.InputStream input)
+    public static Person parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PersonModel.Person parseDelimitedFrom(
+    public static Person parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PersonModel.Person parseFrom(
+    public static Person parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PersonModel.Person parseFrom(
+    public static Person parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -346,7 +346,7 @@ public final class PersonModel {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PersonModel.Person prototype) {
+    public static Builder newBuilder(Person prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -366,7 +366,7 @@ public final class PersonModel {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:Person)
-        PersonModel.PersonOrBuilder {
+        PersonOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return PersonModel.internal_static_Person_descriptor;
@@ -376,7 +376,7 @@ public final class PersonModel {
           internalGetFieldAccessorTable() {
         return PersonModel.internal_static_Person_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PersonModel.Person.class, PersonModel.Person.Builder.class);
+                Person.class, Builder.class);
       }
 
       // Construct using com.dahai.PersonModel.Person.newBuilder()
@@ -410,20 +410,20 @@ public final class PersonModel {
         return PersonModel.internal_static_Person_descriptor;
       }
 
-      public PersonModel.Person getDefaultInstanceForType() {
-        return PersonModel.Person.getDefaultInstance();
+      public Person getDefaultInstanceForType() {
+        return Person.getDefaultInstance();
       }
 
-      public PersonModel.Person build() {
-        PersonModel.Person result = buildPartial();
+      public Person build() {
+        Person result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public PersonModel.Person buildPartial() {
-        PersonModel.Person result = new PersonModel.Person(this);
+      public Person buildPartial() {
+        Person result = new Person(this);
         result.id_ = id_;
         result.name_ = name_;
         result.email_ = email_;
@@ -458,16 +458,16 @@ public final class PersonModel {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PersonModel.Person) {
-          return mergeFrom((PersonModel.Person)other);
+        if (other instanceof Person) {
+          return mergeFrom((Person)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PersonModel.Person other) {
-        if (other == PersonModel.Person.getDefaultInstance()) return this;
+      public Builder mergeFrom(Person other) {
+        if (other == Person.getDefaultInstance()) return this;
         if (other.getId() != 0) {
           setId(other.getId());
         }
@@ -491,11 +491,11 @@ public final class PersonModel {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PersonModel.Person parsedMessage = null;
+        Person parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PersonModel.Person) e.getUnfinishedMessage();
+          parsedMessage = (Person) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -683,12 +683,12 @@ public final class PersonModel {
     }
 
     // @@protoc_insertion_point(class_scope:Person)
-    private static final PersonModel.Person DEFAULT_INSTANCE;
+    private static final Person DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PersonModel.Person();
+      DEFAULT_INSTANCE = new Person();
     }
 
-    public static PersonModel.Person getDefaultInstance() {
+    public static Person getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -711,7 +711,7 @@ public final class PersonModel {
       return PARSER;
     }
 
-    public PersonModel.Person getDefaultInstanceForType() {
+    public Person getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
