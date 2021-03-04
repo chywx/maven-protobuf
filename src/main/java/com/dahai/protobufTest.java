@@ -1,6 +1,11 @@
 package com.dahai;
 
 
+import com.dahai.protobuf.PersonModel;
+import com.dahai.protobuf.SchoolModel;
+import com.dahai.protobuf.SchoolModel.School;
+import com.dahai.protobuf.SchoolModel.School.Builder;
+import com.dahai.protobuf.SchoolModel.Student;
 import java.util.Arrays;
 
 public class protobufTest {
@@ -28,5 +33,26 @@ public class protobufTest {
         System.out.println("after id:" + p2.getId());
         System.out.println("after name:" + p2.getName());
         System.out.println("after email:" + p2.getEmail());
+
+        System.out.println("--------------------");
+
+        Student s1 = Student.newBuilder()
+            .setId(1)
+            .setName("hello")
+            .setAge(22)
+            .build();
+        Student s2 = Student.newBuilder()
+            .setId(2)
+            .setName("hello2")
+            .setAge(44)
+            .build();
+        Builder schoolBuilder = School.newBuilder();
+        schoolBuilder.setId(1);
+        schoolBuilder.addList(s1);
+        schoolBuilder.addList(s2);
+
+        System.out.println(schoolBuilder.toString());
+
+
     }
 }

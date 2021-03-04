@@ -1,5 +1,5 @@
 syntax = "proto3";
-option java_package = "com.dahai";
+option java_package = "com.dahai.protobuf";
 option java_outer_classname = "PersonModel";
 
 message Person {
