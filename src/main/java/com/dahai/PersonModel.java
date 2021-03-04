@@ -34,11 +34,16 @@ public final class PersonModel {
         getNameBytes();
 
     /**
-     * <code>optional string email = 3;</code>
+     * <code>optional int32 age = 3;</code>
+     */
+    int getAge();
+
+    /**
+     * <code>optional string email = 4;</code>
      */
     String getEmail();
     /**
-     * <code>optional string email = 3;</code>
+     * <code>optional string email = 4;</code>
      */
     com.google.protobuf.ByteString
         getEmailBytes();
@@ -57,6 +62,7 @@ public final class PersonModel {
     private Person() {
       id_ = 0;
       name_ = "";
+      age_ = 0;
       email_ = "";
     }
 
@@ -96,7 +102,12 @@ public final class PersonModel {
               name_ = s;
               break;
             }
-            case 26: {
+            case 24: {
+
+              age_ = input.readInt32();
+              break;
+            }
+            case 34: {
               String s = input.readStringRequireUtf8();
 
               email_ = s;
@@ -144,7 +155,7 @@ public final class PersonModel {
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         name_ = s;
@@ -158,7 +169,7 @@ public final class PersonModel {
         getNameBytes() {
       Object ref = name_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         name_ = b;
@@ -168,17 +179,26 @@ public final class PersonModel {
       }
     }
 
-    public static final int EMAIL_FIELD_NUMBER = 3;
+    public static final int AGE_FIELD_NUMBER = 3;
+    private int age_;
+    /**
+     * <code>optional int32 age = 3;</code>
+     */
+    public int getAge() {
+      return age_;
+    }
+
+    public static final int EMAIL_FIELD_NUMBER = 4;
     private volatile Object email_;
     /**
-     * <code>optional string email = 3;</code>
+     * <code>optional string email = 4;</code>
      */
     public String getEmail() {
       Object ref = email_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         email_ = s;
@@ -186,13 +206,13 @@ public final class PersonModel {
       }
     }
     /**
-     * <code>optional string email = 3;</code>
+     * <code>optional string email = 4;</code>
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
       Object ref = email_;
       if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (String) ref);
         email_ = b;
@@ -220,8 +240,11 @@ public final class PersonModel {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
+      if (age_ != 0) {
+        output.writeInt32(3, age_);
+      }
       if (!getEmailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
       }
     }
 
@@ -237,8 +260,12 @@ public final class PersonModel {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
+      if (age_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, age_);
+      }
       if (!getEmailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
       }
       memoizedSize = size;
       return size;
@@ -260,6 +287,8 @@ public final class PersonModel {
           == other.getId());
       result = result && getName()
           .equals(other.getName());
+      result = result && (getAge()
+          == other.getAge());
       result = result && getEmail()
           .equals(other.getEmail());
       return result;
@@ -276,6 +305,8 @@ public final class PersonModel {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + AGE_FIELD_NUMBER;
+      hash = (53 * hash) + getAge();
       hash = (37 * hash) + EMAIL_FIELD_NUMBER;
       hash = (53 * hash) + getEmail().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -400,6 +431,8 @@ public final class PersonModel {
 
         name_ = "";
 
+        age_ = 0;
+
         email_ = "";
 
         return this;
@@ -426,6 +459,7 @@ public final class PersonModel {
         Person result = new Person(this);
         result.id_ = id_;
         result.name_ = name_;
+        result.age_ = age_;
         result.email_ = email_;
         onBuilt();
         return result;
@@ -475,6 +509,9 @@ public final class PersonModel {
           name_ = other.name_;
           onChanged();
         }
+        if (other.getAge() != 0) {
+          setAge(other.getAge());
+        }
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
           onChanged();
@@ -516,7 +553,7 @@ public final class PersonModel {
        * <code>optional int32 id = 1;</code>
        */
       public Builder setId(int value) {
-
+        
         id_ = value;
         onChanged();
         return this;
@@ -525,7 +562,7 @@ public final class PersonModel {
        * <code>optional int32 id = 1;</code>
        */
       public Builder clearId() {
-
+        
         id_ = 0;
         onChanged();
         return this;
@@ -554,7 +591,7 @@ public final class PersonModel {
           getNameBytes() {
         Object ref = name_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           name_ = b;
@@ -571,7 +608,7 @@ public final class PersonModel {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         name_ = value;
         onChanged();
         return this;
@@ -580,7 +617,7 @@ public final class PersonModel {
        * <code>optional string name = 2;</code>
        */
       public Builder clearName() {
-
+        
         name_ = getDefaultInstance().getName();
         onChanged();
         return this;
@@ -594,15 +631,41 @@ public final class PersonModel {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int age_ ;
+      /**
+       * <code>optional int32 age = 3;</code>
+       */
+      public int getAge() {
+        return age_;
+      }
+      /**
+       * <code>optional int32 age = 3;</code>
+       */
+      public Builder setAge(int value) {
+        
+        age_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 age = 3;</code>
+       */
+      public Builder clearAge() {
+        
+        age_ = 0;
         onChanged();
         return this;
       }
 
       private Object email_ = "";
       /**
-       * <code>optional string email = 3;</code>
+       * <code>optional string email = 4;</code>
        */
       public String getEmail() {
         Object ref = email_;
@@ -617,13 +680,13 @@ public final class PersonModel {
         }
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>optional string email = 4;</code>
        */
       public com.google.protobuf.ByteString
           getEmailBytes() {
         Object ref = email_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (String) ref);
           email_ = b;
@@ -633,29 +696,29 @@ public final class PersonModel {
         }
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>optional string email = 4;</code>
        */
       public Builder setEmail(
           String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         email_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>optional string email = 4;</code>
        */
       public Builder clearEmail() {
-
+        
         email_ = getDefaultInstance().getEmail();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string email = 3;</code>
+       * <code>optional string email = 4;</code>
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
@@ -663,7 +726,7 @@ public final class PersonModel {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         email_ = value;
         onChanged();
         return this;
@@ -719,7 +782,7 @@ public final class PersonModel {
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Person_descriptor;
-  private static final
+  private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Person_fieldAccessorTable;
 
@@ -731,9 +794,9 @@ public final class PersonModel {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\014person.proto\"1\n\006Person\022\n\n\002id\030\001 \001(\005\022\014\n\004" +
-      "name\030\002 \001(\t\022\r\n\005email\030\003 \001(\tB\030\n\tcom.dahaiB\013" +
-      "PersonModelb\006proto3"
+      "\n\014person.proto\">\n\006Person\022\n\n\002id\030\001 \001(\005\022\014\n\004" +
+      "name\030\002 \001(\t\022\013\n\003age\030\003 \001(\005\022\r\n\005email\030\004 \001(\tB\030" +
+      "\n\tcom.dahaiB\013PersonModelb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -752,7 +815,7 @@ public final class PersonModel {
     internal_static_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Person_descriptor,
-        new String[] { "Id", "Name", "Email", });
+        new String[] { "Id", "Name", "Age", "Email", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

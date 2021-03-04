@@ -4,22 +4,20 @@ package com.dahai;
 import java.util.Arrays;
 
 public class protobufTest {
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) throws Exception {
 
         PersonModel.Person.Builder builder = PersonModel.Person.newBuilder();
-        builder.setId(1);
-        builder.setName("陈大海");
+        builder.setId(23);
+        builder.setName("chy");
         builder.setEmail("1559843332@qq.com");
         PersonModel.Person person = builder.build();
-        System.out.println("before:"+person);
+        System.out.println("before:" + person);
         System.out.println("##############");
 
-
-        for(byte b : person.toByteArray()){
+        for (byte b : person.toByteArray()) {
             System.out.println(b);
         }
-
-
 
         byte[] byteArray = person.toByteArray();
 

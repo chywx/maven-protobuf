@@ -3,7 +3,8 @@ option java_package = "com.dahai";
 option java_outer_classname = "PersonModel";
 
 message Person {
-    int32 id = 1;
-    string name = 2;
-    string email = 3;
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+  string email = 4;
 }
